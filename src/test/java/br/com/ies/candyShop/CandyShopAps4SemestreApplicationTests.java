@@ -8,6 +8,9 @@ class CandyShopAps4SemestreApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
+		
+		
 	}
-
+	
 }
