@@ -18,13 +18,15 @@ import javax.persistence.Table;
 public class Empregado implements Serializable{
 	
 
-	private static final long serialVersionUID = -7145617543554709062L;
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_empregado")
-	private Integer idEmpregado;
+	private Long idEmpregado;
 	
 	@ManyToOne
 	@JoinColumn(referencedColumnName = "id_endereco", name = "id_endereco")
@@ -39,11 +41,11 @@ public class Empregado implements Serializable{
 	@OneToMany(mappedBy = "empregado", targetEntity = Entrega.class)
 	private List<Entrega> entregas;
 
-	public Integer getIdEmpregado() {
+	public Long getIdEmpregado() {
 		return idEmpregado;
 	}
 
-	public void setIdEmpregado(Integer idEmpregado) {
+	public void setIdEmpregado(Long idEmpregado) {
 		this.idEmpregado = idEmpregado;
 	}
 

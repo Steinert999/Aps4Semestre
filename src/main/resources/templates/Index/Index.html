@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+		<script	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<meta charset="ISO-8859-1">
+	<title>Loja de Doces</title>
+</head>
+<body>
+	<div align="center">
+		<label id="WelcomeLabel"
+			style="font-size: 30pt; margin-top: 100px; margin-bottom: 100px;">Bem
+			Vindo</label>
+		<div style="width: 35%">
+
+			<div class="ui-field-contain">
+				<label for="email">E-mail:</label> <input name="email" id="email"
+					data-clear-btn="true" value="" required="true" data-theme="a"
+					type="email" />
+			</div>
+
+			<div class="ui-field-contain">
+
+				<label for="login">Login:</label> <input name="login" id="login"
+					data-clear-btn="true" value="" required="true" type="password" />
+
+
+			</div>
+			<div data-role="navbar" id="perfilAcesso">
+				<ul>
+					<li style="padding: 10px;"><a style="border-radius: 20px;" href="#">Cliente</a></li>
+					<li style="padding: 10px"><a style="border-radius: 20px;" href="#">Fornecedor</a></li>
+				</ul>
+			</div>
+
+			<div style="border-radius: 90px; width: 60px;"
+				class="ui-input-btn ui-btn ui-icon-arrow-r ui-btn-icon-bottom ui-corner-all ui-btn-a">
+				Login <input data-enhanced="true" type="button" value="Login"
+					id="submitLogin" />
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

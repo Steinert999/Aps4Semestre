@@ -18,17 +18,21 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "pedido")
-public class Pedido implements Serializable {
+public class Pedido implements Serializable{
 	
-	private static final long serialVersionUID = -7055593676969395544L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_pedido")
-	private Integer idPedido;
+	private Long idPedido;
 	
 	@ManyToOne
-	@JoinColumn(referencedColumnName = "id_cliente", name = "id_cliente")
+	@JoinColumn(referencedColumnName = "id_usuario", name = "id_cliente")
 	private Cliente cliente;
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -40,14 +44,14 @@ public class Pedido implements Serializable {
 	private Entrega entrega;
 	
 	@ManyToMany
-	@Column(name = "id_produto")
+	@JoinColumn(referencedColumnName = "id_produto", name = "id_produto")
 	private List<Produto> produtos;
 
-	public Integer getIdPedido() {
+	public Long getIdPedido() {
 		return idPedido;
 	}
 
-	public void setIdPedido(Integer idPedido) {
+	public void setIdPedido(Long idPedido) {
 		this.idPedido = idPedido;
 	}
 

@@ -1,6 +1,7 @@
 package br.com.ies.candyShop.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,18 +10,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "endereco")
 public class Endereco implements Serializable{
 	
-	private static final long serialVersionUID = -7357340241870698796L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_endereco")
-	private Integer idEndereco;
+	private Long idEndereco;
 	
 	@ManyToOne
 	@JoinColumn(referencedColumnName = "cd_estado", name = "cd_estado")
@@ -35,14 +41,17 @@ public class Endereco implements Serializable{
 	@Column(name = "nm_rua", length = 50)
 	private String nmRua;
 	
-	@Column(name = "nu_casa")
-	private Integer nuCasa;
+	@Column(name = "nu_logradouro")
+	private Integer nuLogradouro;
+	
+	@OneToMany(mappedBy = "endereco", targetEntity = Usuario.class)
+	private List<Usuario> usuarios;
 
-	public Integer getIdEndereco() {
+	public Long getIdEndereco() {
 		return idEndereco;
 	}
 
-	public void setIdEndereco(Integer idEndereco) {
+	public void setIdEndereco(Long idEndereco) {
 		this.idEndereco = idEndereco;
 	}
 
@@ -78,11 +87,20 @@ public class Endereco implements Serializable{
 		this.nmRua = nmRua;
 	}
 
-	public Integer getNuCasa() {
-		return nuCasa;
+	public List<Usuario> getUsuarios() {
+		return usuarios;
 	}
 
-	public void setNuCasa(Integer nuCasa) {
-		this.nuCasa = nuCasa;
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
+
+	public Integer getNuLogradouro() {
+		return nuLogradouro;
+	}
+
+	public void setNuLogradouro(Integer nuLogradouro) {
+		this.nuLogradouro = nuLogradouro;
+	}
+
 }

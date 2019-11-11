@@ -1,29 +1,25 @@
 package br.com.ies.candyShop.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "fornecedor")
-public class Fornecedor implements Serializable{
+@ PrimaryKeyJoinColumn(referencedColumnName = "id_usuario")
+public class Fornecedor extends Usuario {
 	
-	private static final long serialVersionUID = -6817886257532321773L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_fornecedor")
-	private Integer idFornecedor;
-	
 	@ManyToMany
 	@JoinColumn(referencedColumnName = "id_endereco")
 	@Column(name = "id_endereco")
@@ -39,19 +35,23 @@ public class Fornecedor implements Serializable{
 	@Email
 	private String emailFornecedor;
 	
+	@Column(name = "senha_fornecedor")
+	private String senhaFornecedor;
+	
 	@Column(name = "nm_contato")
 	private String nmContato;
 	
 	@ManyToMany
-	@Column(name = "id_produto")
+	@JoinColumn(referencedColumnName = "id_produtos", name = "id_produtos")
 	private List<Produto> produtos;
+	
 
-	public Integer getIdFornecedor() {
-		return idFornecedor;
+	public String getSenhaFornecedor() {
+		return senhaFornecedor;
 	}
 
-	public void setIdFornecedor(Integer idFornecedor) {
-		this.idFornecedor = idFornecedor;
+	public void setSenhaFornecedor(String senhaFornecedor) {
+		this.senhaFornecedor = senhaFornecedor;
 	}
 
 	public List<Endereco> getEnderecos() {
@@ -101,6 +101,4 @@ public class Fornecedor implements Serializable{
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
-		
-	
 }

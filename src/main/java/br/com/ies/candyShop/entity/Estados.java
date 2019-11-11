@@ -13,14 +13,18 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "estado")
-public class Estados implements Serializable {
+public class Estados implements Serializable{
 
-	private static final long serialVersionUID = 7548576577011180983L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_estado")
-	private Integer idEstado;
+	private Long idEstado;
 	
 	@Column(name = "cd_estado")
 	private String cdEstado;
@@ -31,11 +35,11 @@ public class Estados implements Serializable {
 	@OneToMany(mappedBy = "estado", targetEntity = Endereco.class)
 	private List<Endereco> enderecos;
 
-	public Integer getIdEstado() {
+	public Long getIdEstado() {
 		return idEstado;
 	}
 
-	public void setIdEstado(Integer idEstado) {
+	public void setIdEstado(Long idEstado) {
 		this.idEstado = idEstado;
 	}
 

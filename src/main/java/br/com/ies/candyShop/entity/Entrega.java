@@ -20,12 +20,16 @@ import javax.persistence.TemporalType;
 @Table(name = "entrega")
 public class Entrega implements Serializable{
 	
-	private static final long serialVersionUID = 6145471655632093685L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_entrega")
-	private Integer idEntrega;
+	private Long idEntrega;
 	
 	@ManyToOne
 	@JoinColumn(referencedColumnName = "id_empregado", name = "id_empregado")
@@ -45,11 +49,11 @@ public class Entrega implements Serializable{
 	@Column(name = "prz_entrega")
 	private Calendar przEntrega;
 
-	public Integer getIdEntrega() {
+	public Long getIdEntrega() {
 		return idEntrega;
 	}
 
-	public void setIdEntrega(Integer idEntrega) {
+	public void setIdEntrega(Long idEntrega) {
 		this.idEntrega = idEntrega;
 	}
 
@@ -61,11 +65,11 @@ public class Entrega implements Serializable{
 		this.empregado = empregado;
 	}
 
-	public List<Pedido> getPedido() {
+	public List<Pedido> getPedidos() {
 		return pedidos;
 	}
 
-	public void setPedido(List<Pedido> pedidos) {
+	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
 
