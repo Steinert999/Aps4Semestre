@@ -3,8 +3,9 @@
 # Tecnologias utilizadas
 * SpringBoot
 * Spring Data JPA
-* Thymeleaf
+* JSF
 * JDK 13
 
 # Tema 
-* eCommerce (Loja de Doces)
+* Tela de CRUD de Produtos
+
