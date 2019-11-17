@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -35,16 +34,10 @@ public class Produto implements Serializable{
 	
 	@Column(name = "desc_produto", length = 280)
 	private String descProduto;
-	
-	@Lob
-	@Column(name = "img_produto")
-	private byte[] img_produto;
-	
-	@ManyToMany(mappedBy = "produtos", targetEntity = Fornecedor.class)
-	private List<Fornecedor> fornecedores;
-	
-	@ManyToMany(mappedBy = "produtos", targetEntity = Pedido.class)
-	private List<Pedido> pedidos;
+
+//	
+//	@ManyToMany(mappedBy = "produtos", targetEntity = Pedido.class)
+//	private List<Pedido> pedidos;
 
 	public Long getIdProduto() {
 		return idProduto;
@@ -78,27 +71,11 @@ public class Produto implements Serializable{
 		this.descProduto = descProduto;
 	}
 
-	public byte[] getImg_produto() {
-		return img_produto;
-	}
-
-	public void setImg_produto(byte[] img_produto) {
-		this.img_produto = img_produto;
-	}
-
-	public List<Fornecedor> getFornecedores() {
-		return fornecedores;
-	}
-
-	public void setFornecedores(List<Fornecedor> fornecedores) {
-		this.fornecedores = fornecedores;
-	}
-
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
+//	public List<Pedido> getPedidos() {
+//		return pedidos;
+//	}
+//
+//	public void setPedidos(List<Pedido> pedidos) {
+//		this.pedidos = pedidos;
+//	}
 }
