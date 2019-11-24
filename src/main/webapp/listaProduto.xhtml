@@ -14,7 +14,7 @@
                     <p:column>
                     	<f:facet name="header"> Ações</f:facet>
                         <h:commandButton action="#{listaProduto.deleteById(produto.idProduto)}" value="Excluir" />
-                        <h:commandButton action="formProduto"  value="Alterar" />
+                        <h:commandButton action="#{controlProduto.findProduto(produto.idProduto)}" value="Alterar" />
                     </p:column>
                     <p:column>
                         <f:facet name="header">Nome</f:facet>

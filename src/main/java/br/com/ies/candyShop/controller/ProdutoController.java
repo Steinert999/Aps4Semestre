@@ -1,5 +1,9 @@
 package br.com.ies.candyShop.controller;
 
+import java.io.IOException;
+
+import javax.faces.context.FacesContext;
+
 import org.ocpsoft.rewrite.annotation.Join;
 import org.ocpsoft.rewrite.el.ELBeanName;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +32,20 @@ public class ProdutoController {
 	
 	public Produto getProduto() {
 		return produto;
+	}
+	
+	public Produto findProduto (Long id) {
+		this.produto = produtoService.FindProdutoById(id);
+		if(this.produto != null) {
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/formProduto.jsf");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return this.produto;
+		}
+		return null;	
 	}
 
 }
