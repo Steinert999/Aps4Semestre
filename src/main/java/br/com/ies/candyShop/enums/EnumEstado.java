@@ -50,7 +50,7 @@ public enum EnumEstado {
 			this.estado = estado;
 		}
 		
-		public List<String> getListSiglaEstados(){
+		public static List<String> getListSiglaEstados(){
 			List<String> siglasEstados = new ArrayList<>();
 			for(EnumEstado estado : EnumSet.allOf(EnumEstado.class)) {
 				siglasEstados.add(estado.name());
@@ -58,7 +58,7 @@ public enum EnumEstado {
 			return siglasEstados;
 		}
 		
-		public List<String> getListNomesEstados(){
+		public static List<String> getListNomesEstados(){
 			List<String> nomesEstados = new ArrayList<>();
 			for(EnumEstado estado : EnumSet.allOf(EnumEstado.class)) {
 				nomesEstados.add(estado.getEstado());
