@@ -43,7 +43,7 @@ public class ProdutoService {
 		produtoRepository.deleteById(id);
 	}
 	
-	public void deleteCliente(Produto cliente) {
-		produtoRepository.delete(cliente);
+	public void deleteProduto(Produto produto) {
+		produtoRepository.delete(produto);
 	}
 }

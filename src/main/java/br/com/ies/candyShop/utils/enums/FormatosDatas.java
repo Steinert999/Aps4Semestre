@@ -1,4 +1,4 @@
-package br.com.ies.candyShop.enums;
+package br.com.ies.candyShop.utils.enums;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
